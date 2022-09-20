@@ -5,35 +5,37 @@ const secret = 'mysecretsshhhhh';
 const expiration = '2h';
 
 module.exports = {
-  // function for our authenticated routes
-  authMiddleware: function (req, res, next) {
-    // allows token to be sent via  req.query or headers
-    let token = req.query.token || req.headers.authorization;
+        const payload = { usernmae, email, _id };
 
-    // ["Bearer", "<tokenvalue>"]
-    if (req.headers.authorization) {
-      token = token.split(' ').pop().trim();
-    }
+        return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    },
 
-    if (!token) {
-      return res.status(400).json({ message: 'You have no token!' });
-    }
+    // function for our authenticated routes
+    authMiddleware: function (req, res, next) {
+        // allows token to be sent via req.body, req.query, or headers
+        let token =
+            req.body.token || req.query.token || req.headers.authorization;
 
-    // verify token and get user data out of it
-    try {
-      const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      req.user = data;
-    } catch {
-      console.log('Invalid token');
-      return res.status(400).json({ message: 'invalid token!' });
-    }
+        // ["Bearer", "<tokenvalue>"]
+        if (req.headers.authorization) {
+            token = token.split(' ').pop().trim();
+        }
 
-    // send to next endpoint
-    next();
-  },
-  signToken: function ({ username, email, _id }) {
-    const payload = { username, email, _id };
+        // If no token exists return the request object as it is
+        if (!token) {
+            return req;
+        }
 
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-  },
+        // verify token and get user data out of it
+        try {
+            const { data } = jwt.verify(token, secret, { maxAge: expiration });
+            req.user = data;
+        } catch {
+            console.log('Invalid token');
+            return res.status(400).json({ message: 'invalid token!' });
+        }
+
+        // returning up to date request object
+        return req;
+    },
 };
