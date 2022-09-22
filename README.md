@@ -12,7 +12,11 @@ This application can be used to search for books and add or remove them from you
 
 <img align="left" src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=JavaScript&style=flat&logoColor=white" />
 
+<img align="left" src="https://img.shields.io/badge/Node.js-6DA55F.svg?logo=node.js&style=flat&logoColor=white" />
+
 <img align="left" src="https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&style=flat" />
+
+<img align="left" src="https://img.shields.io/badge/HTML-E34F26.svg?logo=HTML5&style=flat&logoColor=white" />
 
 <img align="left" src="https://img.shields.io/badge/CSS-1572B6.svg?logo=CSS3&style=flat&logoColor=white" />
 
@@ -20,9 +24,9 @@ This application can be used to search for books and add or remove them from you
 
 # </br>
 
-## MERN Book Search Engine Live Site
+## MERN Book Search Engine Heroku Live Site
 
--   [Book Search Engine Live Site](https://joliver521.github.io/react-portfolio/)
+-   [Book Search Engine Live Site](https://book-search-engine-jso.herokuapp.com/)
 
 ## GitHub repository for challenge 21
 
