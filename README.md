@@ -6,6 +6,10 @@ This application can be used to search for books and add or remove them from you
 
 ![Screen shot of the Book Search Engine Website](./client/src/assets/book-search-engine-screenshot.png)
 
+## How to Use Book Search Engine App
+
+To install clone the repository and open in vs code. After cloning the repository run npm install to install the dependencies. Finally type npm run develop in the terminal to start the servers concurrently, and the page will open upon server start up.
+
 ### Languages and Tools:
 
 <img align="left" src="https://img.shields.io/badge/React-%2320232a.svg?logo=react&style=flat" />
